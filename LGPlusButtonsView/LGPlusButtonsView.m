@@ -311,6 +311,9 @@ typedef NS_ENUM(NSUInteger, LGPlusButtonDescriptionsPosition)
 {
     //NSLog(@"\nself = %@\nsuper = %@\nsubviews = %@\nsupersubviews = %@\n\n", self, [super hitTest:point withEvent:event], self.subviews, self.superview.subviews);
 
+    if (!self.userInteractionEnabled || [self isHidden] || self.alpha == 0)
+        return nil;
+
     UIView *view = nil;
 
     for (LGPlusButton *button in _buttonsArray)
